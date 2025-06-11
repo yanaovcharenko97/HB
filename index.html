@@ -33,7 +33,7 @@
       color: #ff69b4;
       font-size: 5vw;
       text-shadow: 2px 2px #fff;
-      margin: 0 0 0.5vh;
+      margin: 0 0 0.5vh; /* Зменшено відстань після заголовка */
     }
 
     .pyramid {
@@ -50,6 +50,12 @@
       justify-content: center;
       gap: 1vw;
       flex-wrap: nowrap;
+    }
+
+    .row.cake-row {
+      align-items: flex-start;
+      padding-top: 0;
+      margin-top: 0;
     }
 
     .photo {
@@ -131,7 +137,7 @@
     </div>
 
     <!-- Торт (гіфка) -->
-    <div class="row">
+    <div class="row cake-row">
       <img src="center.gif" class="cake" alt="Торт">
     </div>
   </div>
