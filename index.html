@@ -13,7 +13,7 @@
       background-position: center;
       background-repeat: no-repeat;
       height: 100vh;
-      overflow-x: hidden;
+      overflow: hidden;
       position: relative;
     }
 
@@ -25,55 +25,38 @@
       text-shadow: 2px 2px #fff;
     }
 
-    .heart-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      grid-template-rows: repeat(6, 1fr);
+    .heart-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90vmin;
+      height: 80vmin;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
       gap: 5px;
-      max-width: 400px;
-      margin: 30px auto;
-      position: relative;
     }
 
-    .photo {
-      width: 100%;
-      border-radius: 12px;
+    .heart-container img.photo {
+      width: 18%;
+      border-radius: 15px;
       object-fit: cover;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      position: absolute;
     }
 
-    .photo1  { grid-column: 2 / 3; grid-row: 1 / 2; }
-    .photo2  { grid-column: 3 / 4; grid-row: 1 / 2; }
-    .photo3  { grid-column: 5 / 6; grid-row: 1 / 2; }
-    .photo4  { grid-column: 6 / 7; grid-row: 1 / 2; }
-    .photo5  { grid-column: 1 / 2; grid-row: 2 / 3; }
-    .photo6  { grid-column: 4 / 5; grid-row: 2 / 3; }
-    .photo7  { grid-column: 7 / 8; grid-row: 2 / 3; }
-    .photo8  { grid-column: 2 / 3; grid-row: 3 / 4; }
-    .photo9  { grid-column: 6 / 7; grid-row: 3 / 4; }
-    .photo10 { grid-column: 3 / 6; grid-row: 4 / 5; }
-    .photo11 { grid-column: 3 / 6; grid-row: 5 / 6; }
-
-    .heart-center {
-      grid-column: 4 / 5;
-      grid-row: 3 / 4;
-      z-index: 10;
-      border-radius: 50%;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
+    .cake {
+      width: 25%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
     }
 
-    @media (max-width: 600px) {
-      .heart-grid {
-        max-width: 90vw;
-        gap: 3px;
-      }
-
-      h1 {
-        font-size: 8vw;
-      }
-    }
-
+    /* Кнопка музики */
     #musicButton {
       position: fixed;
       bottom: 20px;
@@ -86,28 +69,47 @@
       background-color: #ffb6c1;
       cursor: pointer;
     }
+
+    @media (max-width: 600px) {
+      .heart-container img.photo {
+        width: 20%;
+      }
+
+      h1 {
+        font-size: 8vw;
+      }
+
+      .cake {
+        width: 35%;
+      }
+    }
   </style>
 </head>
 <body>
   <h1>Аліна, з Днем Народження!</h1>
 
-  <div class="heart-grid">
-    <img src="photo1.jpg" class="photo photo1" alt="">
-    <img src="photo2.jpg" class="photo photo2" alt="">
-    <img src="photo3.jpg" class="photo photo3" alt="">
-    <img src="photo4.jpg" class="photo photo4" alt="">
-    <img src="photo5.jpg" class="photo photo5" alt="">
-    <img src="photo6.jpg" class="photo photo6" alt="">
-    <img src="photo7.jpg" class="photo photo7" alt="">
-    <img src="photo8.jpg" class="photo photo8" alt="">
-    <img src="photo9.jpg" class="photo photo9" alt="">
-    <img src="photo10.jpg" class="photo photo10" alt="">
-    <img src="photo11.jpg" class="photo photo11" alt="">
-    <img src="center.gif" class="heart-center" alt="center">
+  <div class="heart-container">
+    <!-- Фото у формі серця -->
+    <img src="photo1.jpg" class="photo" style="top: 10%; left: 40%;">
+    <img src="photo2.jpg" class="photo" style="top: 10%; left: 55%;">
+    <img src="photo3.jpg" class="photo" style="top: 25%; left: 30%;">
+    <img src="photo4.jpg" class="photo" style="top: 25%; left: 65%;">
+    <img src="photo5.jpg" class="photo" style="top: 40%; left: 25%;">
+    <img src="photo6.jpg" class="photo" style="top: 40%; left: 70%;">
+    <img src="photo7.jpg" class="photo" style="top: 55%; left: 30%;">
+    <img src="photo8.jpg" class="photo" style="top: 55%; left: 60%;">
+    <img src="photo9.jpg" class="photo" style="top: 60%; left: 45%;">
+    <img src="photo10.jpg" class="photo" style="top: 70%; left: 35%;">
+    <img src="photo11.jpg" class="photo" style="top: 70%; left: 55%;">
+
+    <!-- Торт -->
+    <img src="center.gif" class="cake" alt="Торт">
   </div>
 
+  <!-- Кнопка керування музикою -->
   <button onclick="toggleMusic()" id="musicButton">🔈 Увімкнути музику</button>
 
+  <!-- Аудіо -->
   <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
     Ваш браузер не підтримує відтворення аудіо.
@@ -131,3 +133,66 @@
   </script>
 </body>
 </html>
+
+
+куди треба вставити це:
+
+<style>
+  .heart-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 5px;
+    max-width: 320px;
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+  }
+
+  .heart-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .heart-center {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    z-index: 2;
+  }
+
+  .photo1  { grid-column: 2 / 3; grid-row: 1 / 2; }
+  .photo2  { grid-column: 3 / 4; grid-row: 1 / 2; }
+  .photo3  { grid-column: 1 / 2; grid-row: 2 / 3; }
+  .photo4  { grid-column: 2 / 3; grid-row: 2 / 3; }
+  .photo5  { grid-column: 3 / 4; grid-row: 2 / 3; }
+  .photo6  { grid-column: 4 / 5; grid-row: 2 / 3; }
+  .photo7  { grid-column: 2 / 3; grid-row: 3 / 4; }
+  .photo8  { grid-column: 4 / 5; grid-row: 3 / 4; }
+  .photo9  { grid-column: 1 / 2; grid-row: 4 / 5; }
+  .photo10 { grid-column: 5 / 6; grid-row: 4 / 5; }
+  .photo11 { grid-column: 3 / 4; grid-row: 5 / 6; }
+
+  @media (max-width: 600px) {
+    .heart-grid {
+      max-width: 90vw;
+      gap: 3px;
+    }
+  }
+</style>
+
+<div class="heart-grid">
+  <img src="photo1.jpg" class="photo1" alt="">
+  <img src="photo2.jpg" class="photo2" alt="">
+  <img src="photo3.jpg" class="photo3" alt="">
+  <img src="photo4.jpg" class="photo4" alt="">
+  <img src="photo5.jpg" class="photo5" alt="">
+  <img src="photo6.jpg" class="photo6" alt="">
+  <img src="photo7.jpg" class="photo7" alt="">
+  <img src="photo8.jpg" class="photo8" alt="">
+  <img src="photo9.jpg" class="photo9" alt="">
+  <img src="photo10.jpg" class="photo10" alt="">
+  <img src="photo11.jpg" class="photo11" alt="">
+  <img src="center.gif" class="heart-center" alt="center">
+</div>
