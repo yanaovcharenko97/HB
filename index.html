@@ -33,7 +33,6 @@
       height: 60vmin;
       transform: translate(-50%, -50%);
       border-radius: 50%;
-      animation: rotate 40s linear infinite;
     }
 
     .circle-container img.photo {
@@ -43,20 +42,23 @@
       object-fit: cover;
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      transform-origin: center center;
     }
 
-    .circle-container img.photo:nth-child(1)  { transform: rotate(0deg)    translate(28vmin) rotate(-0deg);   top: 50%; left: 50%; }
-    .circle-container img.photo:nth-child(2)  { transform: rotate(33deg)   translate(28vmin) rotate(-33deg);  top: 50%; left: 50%; }
-    .circle-container img.photo:nth-child(3)  { transform: rotate(66deg)   translate(28vmin) rotate(-66deg);  top: 50%; left: 50%; }
-    .circle-container img.photo:nth-child(4)  { transform: rotate(99deg)   translate(28vmin) rotate(-99deg);  top: 50%; left: 50%; }
-    .circle-container img.photo:nth-child(5)  { transform: rotate(132deg)  translate(28vmin) rotate(-132deg); top: 50%; left: 50%; }
-    .circle-container img.photo:nth-child(6)  { transform: rotate(165deg)  translate(28vmin) rotate(-165deg); top: 50%; left: 50%; }
-    .circle-container img.photo:nth-child(7)  { transform: rotate(198deg)  translate(28vmin) rotate(-198deg); top: 50%; left: 50%; }
-    .circle-container img.photo:nth-child(8)  { transform: rotate(231deg)  translate(28vmin) rotate(-231deg); top: 50%; left: 50%; }
-    .circle-container img.photo:nth-child(9)  { transform: rotate(264deg)  translate(28vmin) rotate(-264deg); top: 50%; left: 50%; }
-    .circle-container img.photo:nth-child(10) { transform: rotate(297deg)  translate(28vmin) rotate(-297deg); top: 50%; left: 50%; }
-    .circle-container img.photo:nth-child(11) { transform: rotate(330deg)  translate(28vmin) rotate(-330deg); top: 50%; left: 50%; }
+    /* Фото по колу */
+    .photo:nth-child(1)  { transform: rotate(0deg)   translate(28vmin) rotate(0deg); }
+    .photo:nth-child(2)  { transform: rotate(33deg)  translate(28vmin) rotate(-33deg); }
+    .photo:nth-child(3)  { transform: rotate(66deg)  translate(28vmin) rotate(-66deg); }
+    .photo:nth-child(4)  { transform: rotate(99deg)  translate(28vmin) rotate(-99deg); }
+    .photo:nth-child(5)  { transform: rotate(132deg) translate(28vmin) rotate(-132deg); }
+    .photo:nth-child(6)  { transform: rotate(165deg) translate(28vmin) rotate(-165deg); }
+    .photo:nth-child(7)  { transform: rotate(198deg) translate(28vmin) rotate(-198deg); }
+    .photo:nth-child(8)  { transform: rotate(231deg) translate(28vmin) rotate(-231deg); }
+    .photo:nth-child(9)  { transform: rotate(264deg) translate(28vmin) rotate(-264deg); }
+    .photo:nth-child(10) { transform: rotate(297deg) translate(28vmin) rotate(-297deg); }
+    .photo:nth-child(11) { transform: rotate(330deg) translate(28vmin) rotate(-330deg); }
 
     .cake {
       position: absolute;
@@ -66,11 +68,6 @@
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 2;
-    }
-
-    @keyframes rotate {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(360deg); }
     }
 
     /* Кнопка музики */
@@ -121,6 +118,7 @@
     <img src="photo10.jpg" class="photo" alt="">
     <img src="photo11.jpg" class="photo" alt="">
 
+    <!-- Центр — гіфка -->
     <img src="center.gif" class="cake" alt="Торт">
   </div>
 
