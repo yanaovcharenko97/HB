@@ -37,10 +37,10 @@
 
     .circle-container img.photo {
       position: absolute;
-      width: 15%;
-      height: 15%;
+      width: 20%;  /* більше фото */
+      height: 20%;
       object-fit: cover;
-      border-radius: 12px;
+      border-radius: 15px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       top: 50%;
       left: 50%;
@@ -62,15 +62,14 @@
 
     .cake {
       position: absolute;
-      width: 20vmin;
-      height: 20vmin;
+      width: 22vmin;
+      height: 22vmin;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 2;
     }
 
-    /* Кнопка музики */
     #musicButton {
       position: fixed;
       bottom: 20px;
@@ -86,13 +85,13 @@
 
     @media (max-width: 600px) {
       .circle-container img.photo {
-        width: 18%;
-        height: 18%;
+        width: 24%;
+        height: 24%;
       }
 
       .cake {
-        width: 28vmin;
-        height: 28vmin;
+        width: 30vmin;
+        height: 30vmin;
       }
 
       h1 {
@@ -104,7 +103,6 @@
 <body>
   <h1>Аліна, з Днем Народження!</h1>
 
-  <!-- Коло з фото -->
   <div class="circle-container">
     <img src="photo1.jpg" class="photo" alt="">
     <img src="photo2.jpg" class="photo" alt="">
@@ -118,14 +116,11 @@
     <img src="photo10.jpg" class="photo" alt="">
     <img src="photo11.jpg" class="photo" alt="">
 
-    <!-- Центр — гіфка -->
     <img src="center.gif" class="cake" alt="Торт">
   </div>
 
-  <!-- Кнопка керування музикою -->
   <button onclick="toggleMusic()" id="musicButton">🔈 Увімкнути музику</button>
 
-  <!-- Аудіо -->
   <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
     Ваш браузер не підтримує відтворення аудіо.
