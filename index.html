@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>З Днем народження, Аліна!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Arial', sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 8vw;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    .heart {
+      position: relative;
+      width: 90vw;
+      max-width: 500px;
+      margin: 30px auto;
+      aspect-ratio: 1 / 1;
+    }
+
+    .photo {
+      position: absolute;
+      width: 25%;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 0 10px #000;
+    }
+
+    .center-gif {
+      position: absolute;
+      width: 35%;
+      top: 32%;
+      left: 32.5%;
+      z-index: 2;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #000;
+    }
+
+    /* Позиціонування 11 фото у формі серця */
+    .photo1  { top: 5%; left: 30%; }
+    .photo2  { top: 5%; left: 55%; }
+    .photo3  { top: 20%; left: 15%; }
+    .photo4  { top: 20%; left: 70%; }
+    .photo5  { top: 38%; left: 5%; }
+    .photo6  { top: 38%; left: 75%; }
+    .photo7  { top: 55%; left: 15%; }
+    .photo8  { top: 55%; left: 60%; }
+    .photo9  { top: 70%; left: 30%; }
+    .photo10 { top: 70%; left: 45%; }
+    .photo11 { top: 85%; left: 37.5%; }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 9vw;
+        margin-top: 20px;
+      }
+      .center-gif {
+        width: 45%;
+        top: 30%;
+        left: 27.5%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Аліна, з Днем Народження!</h1>
+  <div class="heart">
+    <img src="photo1.jpg" class="photo photo1" />
+    <img src="photo2.jpg" class="photo photo2" />
+    <img src="photo3.jpg" class="photo photo3" />
+    <img src="photo4.jpg" class="photo photo4" />
+    <img src="photo5.jpg" class="photo photo5" />
+    <img src="photo6.jpg" class="photo photo6" />
+    <img src="photo7.jpg" class="photo photo7" />
+    <img src="photo8.jpg" class="photo photo8" />
+    <img src="photo9.jpg" class="photo photo9" />
+    <img src="photo10.jpg" class="photo photo10" />
+    <img src="photo11.jpg" class="photo photo11" />
+    <img src="center.gif" class="center-gif" />
+  </div>
+</body>
+</html>
