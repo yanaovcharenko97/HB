@@ -25,35 +25,52 @@
       text-shadow: 2px 2px #fff;
     }
 
-    .heart-container {
+    .circle-container {
       position: absolute;
       top: 50%;
       left: 50%;
+      width: 60vmin;
+      height: 60vmin;
       transform: translate(-50%, -50%);
-      width: 90vmin;
-      height: 80vmin;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
+      border-radius: 50%;
+      animation: rotate 40s linear infinite;
     }
 
-    .heart-container img.photo {
-      width: 18%;
-      border-radius: 15px;
-      object-fit: cover;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    .circle-container img.photo {
       position: absolute;
+      width: 15%;
+      height: 15%;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transform: translate(-50%, -50%);
     }
+
+    .circle-container img.photo:nth-child(1)  { transform: rotate(0deg)    translate(28vmin) rotate(-0deg);   top: 50%; left: 50%; }
+    .circle-container img.photo:nth-child(2)  { transform: rotate(33deg)   translate(28vmin) rotate(-33deg);  top: 50%; left: 50%; }
+    .circle-container img.photo:nth-child(3)  { transform: rotate(66deg)   translate(28vmin) rotate(-66deg);  top: 50%; left: 50%; }
+    .circle-container img.photo:nth-child(4)  { transform: rotate(99deg)   translate(28vmin) rotate(-99deg);  top: 50%; left: 50%; }
+    .circle-container img.photo:nth-child(5)  { transform: rotate(132deg)  translate(28vmin) rotate(-132deg); top: 50%; left: 50%; }
+    .circle-container img.photo:nth-child(6)  { transform: rotate(165deg)  translate(28vmin) rotate(-165deg); top: 50%; left: 50%; }
+    .circle-container img.photo:nth-child(7)  { transform: rotate(198deg)  translate(28vmin) rotate(-198deg); top: 50%; left: 50%; }
+    .circle-container img.photo:nth-child(8)  { transform: rotate(231deg)  translate(28vmin) rotate(-231deg); top: 50%; left: 50%; }
+    .circle-container img.photo:nth-child(9)  { transform: rotate(264deg)  translate(28vmin) rotate(-264deg); top: 50%; left: 50%; }
+    .circle-container img.photo:nth-child(10) { transform: rotate(297deg)  translate(28vmin) rotate(-297deg); top: 50%; left: 50%; }
+    .circle-container img.photo:nth-child(11) { transform: rotate(330deg)  translate(28vmin) rotate(-330deg); top: 50%; left: 50%; }
 
     .cake {
-      width: 25%;
       position: absolute;
+      width: 20vmin;
+      height: 20vmin;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 5;
+      z-index: 2;
+    }
+
+    @keyframes rotate {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
     }
 
     /* Кнопка музики */
@@ -71,16 +88,18 @@
     }
 
     @media (max-width: 600px) {
-      .heart-container img.photo {
-        width: 20%;
+      .circle-container img.photo {
+        width: 18%;
+        height: 18%;
+      }
+
+      .cake {
+        width: 28vmin;
+        height: 28vmin;
       }
 
       h1 {
         font-size: 8vw;
-      }
-
-      .cake {
-        width: 35%;
       }
     }
   </style>
@@ -88,21 +107,20 @@
 <body>
   <h1>Аліна, з Днем Народження!</h1>
 
-  <div class="heart-container">
-    <!-- Фото у формі серця -->
-    <img src="photo1.jpg" class="photo" style="top: 10%; left: 40%;">
-    <img src="photo2.jpg" class="photo" style="top: 10%; left: 55%;">
-    <img src="photo3.jpg" class="photo" style="top: 25%; left: 30%;">
-    <img src="photo4.jpg" class="photo" style="top: 25%; left: 65%;">
-    <img src="photo5.jpg" class="photo" style="top: 40%; left: 25%;">
-    <img src="photo6.jpg" class="photo" style="top: 40%; left: 70%;">
-    <img src="photo7.jpg" class="photo" style="top: 55%; left: 30%;">
-    <img src="photo8.jpg" class="photo" style="top: 55%; left: 60%;">
-    <img src="photo9.jpg" class="photo" style="top: 60%; left: 45%;">
-    <img src="photo10.jpg" class="photo" style="top: 70%; left: 35%;">
-    <img src="photo11.jpg" class="photo" style="top: 70%; left: 55%;">
+  <!-- Коло з фото -->
+  <div class="circle-container">
+    <img src="photo1.jpg" class="photo" alt="">
+    <img src="photo2.jpg" class="photo" alt="">
+    <img src="photo3.jpg" class="photo" alt="">
+    <img src="photo4.jpg" class="photo" alt="">
+    <img src="photo5.jpg" class="photo" alt="">
+    <img src="photo6.jpg" class="photo" alt="">
+    <img src="photo7.jpg" class="photo" alt="">
+    <img src="photo8.jpg" class="photo" alt="">
+    <img src="photo9.jpg" class="photo" alt="">
+    <img src="photo10.jpg" class="photo" alt="">
+    <img src="photo11.jpg" class="photo" alt="">
 
-    <!-- Торт -->
     <img src="center.gif" class="cake" alt="Торт">
   </div>
 
@@ -133,66 +151,3 @@
   </script>
 </body>
 </html>
-
-
-куди треба вставити це:
-
-<style>
-  .heart-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 5px;
-    max-width: 320px;
-    margin: auto;
-    margin-top: 20px;
-    position: relative;
-  }
-
-  .heart-grid img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    object-fit: cover;
-  }
-
-  .heart-center {
-    grid-column: 3 / 4;
-    grid-row: 3 / 4;
-    z-index: 2;
-  }
-
-  .photo1  { grid-column: 2 / 3; grid-row: 1 / 2; }
-  .photo2  { grid-column: 3 / 4; grid-row: 1 / 2; }
-  .photo3  { grid-column: 1 / 2; grid-row: 2 / 3; }
-  .photo4  { grid-column: 2 / 3; grid-row: 2 / 3; }
-  .photo5  { grid-column: 3 / 4; grid-row: 2 / 3; }
-  .photo6  { grid-column: 4 / 5; grid-row: 2 / 3; }
-  .photo7  { grid-column: 2 / 3; grid-row: 3 / 4; }
-  .photo8  { grid-column: 4 / 5; grid-row: 3 / 4; }
-  .photo9  { grid-column: 1 / 2; grid-row: 4 / 5; }
-  .photo10 { grid-column: 5 / 6; grid-row: 4 / 5; }
-  .photo11 { grid-column: 3 / 4; grid-row: 5 / 6; }
-
-  @media (max-width: 600px) {
-    .heart-grid {
-      max-width: 90vw;
-      gap: 3px;
-    }
-  }
-</style>
-
-<div class="heart-grid">
-  <img src="photo1.jpg" class="photo1" alt="">
-  <img src="photo2.jpg" class="photo2" alt="">
-  <img src="photo3.jpg" class="photo3" alt="">
-  <img src="photo4.jpg" class="photo4" alt="">
-  <img src="photo5.jpg" class="photo5" alt="">
-  <img src="photo6.jpg" class="photo6" alt="">
-  <img src="photo7.jpg" class="photo7" alt="">
-  <img src="photo8.jpg" class="photo8" alt="">
-  <img src="photo9.jpg" class="photo9" alt="">
-  <img src="photo10.jpg" class="photo10" alt="">
-  <img src="photo11.jpg" class="photo11" alt="">
-  <img src="center.gif" class="heart-center" alt="center">
-</div>
