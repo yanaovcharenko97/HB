@@ -5,63 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>З Днем Народження, Аліна!</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
+      padding: 0;
       font-family: 'Comic Sans MS', cursive, sans-serif;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
       background-image: url('background.jpg');
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 20px;
+      justify-content: flex-start;
+      padding-top: 2vh;
     }
 
     h1 {
       text-align: center;
       color: #ff69b4;
-      font-size: 6vw;
+      font-size: 5vw;
       text-shadow: 2px 2px #fff;
-      margin-bottom: 30px;
+      margin: 0 0 2vh;
     }
 
     .pyramid {
       display: flex;
-      flex-direction: column;
+      flex-direction: column-reverse;
       align-items: center;
-      gap: 20px;
-      z-index: 1;
+      justify-content: center;
+      gap: 1.5vh;
+      flex-grow: 1;
     }
 
     .row {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
+      gap: 1vw;
+      flex-wrap: nowrap;
     }
 
     .photo {
-      width: 12vw;
-      max-width: 110px;
-      aspect-ratio: 1 / 1;
+      width: 10vw;
+      max-width: 80px;
+      aspect-ratio: 1/1;
       object-fit: cover;
       border-radius: 12px;
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
     }
 
     .cake {
-      width: 16vw;
-      max-width: 130px;
+      width: 14vw;
+      max-width: 100px;
+      aspect-ratio: 1/1;
       border-radius: 16px;
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
     }
 
     #musicButton {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 15px;
+      right: 15px;
       z-index: 1000;
       padding: 10px 15px;
       font-size: 16px;
@@ -77,13 +88,17 @@
       }
 
       .photo {
-        width: 18vw;
-        max-width: 80px;
+        width: 16vw;
+        max-width: 60px;
       }
 
       .cake {
-        width: 24vw;
-        max-width: 100px;
+        width: 20vw;
+        max-width: 80px;
+      }
+
+      .row {
+        gap: 2vw;
       }
     }
   </style>
@@ -92,6 +107,7 @@
   <h1>Аліна, з Днем Народження!</h1>
 
   <div class="pyramid">
+    <!-- Низ: 5 фото -->
     <div class="row">
       <img src="photo1.jpg" class="photo" alt="">
       <img src="photo2.jpg" class="photo" alt="">
@@ -99,16 +115,22 @@
       <img src="photo4.jpg" class="photo" alt="">
       <img src="photo5.jpg" class="photo" alt="">
     </div>
+
+    <!-- Середина: 4 фото -->
     <div class="row">
       <img src="photo6.jpg" class="photo" alt="">
       <img src="photo7.jpg" class="photo" alt="">
       <img src="photo8.jpg" class="photo" alt="">
       <img src="photo9.jpg" class="photo" alt="">
     </div>
+
+    <!-- Верхня частина: 2 фото -->
     <div class="row">
       <img src="photo10.jpg" class="photo" alt="">
       <img src="photo11.jpg" class="photo" alt="">
     </div>
+
+    <!-- Торт (гіфка) -->
     <div class="row">
       <img src="center.gif" class="cake" alt="Торт">
     </div>
