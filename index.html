@@ -7,90 +7,129 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Comic Sans MS', cursive;
-      background: url("background.jpg") no-repeat center center fixed;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-image: url('background.jpg');
       background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background-position: center;
+      background-repeat: no-repeat;
       height: 100vh;
       overflow: hidden;
-      flex-direction: column;
+      position: relative;
     }
 
     h1 {
-      font-size: 4vw;
       text-align: center;
-      margin-bottom: 1vh;
-      color: #fff;
-      text-shadow: 2px 2px 4px #000;
+      color: #ff69b4;
+      margin-top: 20px;
+      font-size: 6vw;
+      text-shadow: 2px 2px #fff;
     }
 
-    .heart {
-      position: relative;
-      width: 300px;
-      height: 270px;
+    .heart-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90vmin;
+      height: 80vmin;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+      gap: 5px;
     }
 
-    .photo {
-      position: absolute;
-      width: 70px;
-      height: 70px;
+    .heart-container img.photo {
+      width: 18%;
       border-radius: 15px;
       object-fit: cover;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      position: absolute;
     }
 
-    .gif {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      z-index: 2;
+    .cake {
+      width: 25%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
     }
 
-    /* Розміщення фото у формі серця */
-    .p1  { top: 15%;  left: 18%; }
-    .p2  { top: 5%;   left: 37%; }
-    .p3  { top: 15%;  right: 18%; }
-    .p4  { top: 35%;  left: 8%; }
-    .p5  { top: 35%;  right: 8%; }
-    .p6  { top: 55%;  left: 18%; }
-    .p7  { top: 55%;  right: 18%; }
-    .p8  { top: 68%;  left: 35%; }
-    .p9  { top: 68%;  right: 35%; }
-    .p10 { bottom: 10%; left: 42%; }
-    .p11 { bottom: 10%; right: 42%; }
+    /* Кнопка музики */
+    #musicButton {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      background-color: #ffb6c1;
+      cursor: pointer;
+    }
 
     @media (max-width: 600px) {
-      .heart {
-        transform: scale(0.75);
+      .heart-container img.photo {
+        width: 20%;
       }
 
       h1 {
-        font-size: 6vw;
+        font-size: 8vw;
+      }
+
+      .cake {
+        width: 35%;
       }
     }
   </style>
 </head>
 <body>
   <h1>Аліна, з Днем Народження!</h1>
-  <div class="heart">
-    <img src="1.jpg" class="photo p1" />
-    <img src="2.jpg" class="photo p2" />
-    <img src="3.jpg" class="photo p3" />
-    <img src="4.jpg" class="photo p4" />
-    <img src="5.jpg" class="photo p5" />
-    <img src="6.jpg" class="photo p6" />
-    <img src="7.jpg" class="photo p7" />
-    <img src="8.jpg" class="photo p8" />
-    <img src="9.jpg" class="photo p9" />
-    <img src="10.jpg" class="photo p10" />
-    <img src="11.jpg" class="photo p11" />
-    <img src="center.gif" class="gif" />
+
+  <div class="heart-container">
+    <!-- Фото у формі серця -->
+    <img src="1.jpg" class="photo" style="top: 10%; left: 40%;">
+    <img src="2.jpg" class="photo" style="top: 10%; left: 55%;">
+    <img src="3.jpg" class="photo" style="top: 25%; left: 30%;">
+    <img src="4.jpg" class="photo" style="top: 25%; left: 65%;">
+    <img src="5.jpg" class="photo" style="top: 40%; left: 25%;">
+    <img src="6.jpg" class="photo" style="top: 40%; left: 70%;">
+    <img src="7.jpg" class="photo" style="top: 55%; left: 30%;">
+    <img src="8.jpg" class="photo" style="top: 55%; left: 60%;">
+    <img src="9.jpg" class="photo" style="top: 60%; left: 45%;">
+    <img src="10.jpg" class="photo" style="top: 70%; left: 35%;">
+    <img src="11.jpg" class="photo" style="top: 70%; left: 55%;">
+
+    <!-- Торт -->
+    <img src="cake.gif" class="cake" alt="Торт">
   </div>
+
+  <!-- Кнопка керування музикою -->
+  <button onclick="toggleMusic()" id="musicButton">🔈 Увімкнути музику</button>
+
+  <!-- Аудіо -->
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Ваш браузер не підтримує відтворення аудіо.
+  </audio>
+
+  <script>
+    let isPlaying = false;
+    const audio = document.getElementById('bgMusic');
+    const button = document.getElementById('musicButton');
+
+    function toggleMusic() {
+      if (isPlaying) {
+        audio.pause();
+        button.textContent = '🔈 Увімкнути музику';
+      } else {
+        audio.play();
+        button.textContent = '🔇 Вимкнути музику';
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
 </body>
 </html>
